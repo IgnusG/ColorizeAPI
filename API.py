@@ -2,13 +2,13 @@ from lxml import html
 import requests
 import sys
 
-class API:
+class ColorizerAPI:
 
-    colorizer = "https://alexbeals.com/projects/colorize/search.php?q="
+    colorizerURL = "https://alexbeals.com/projects/colorize/search.php?q="
 
     @staticmethod
     def query(query):
-        page = requests.get(API.colorizer + query)
+        page = requests.get(ColorizerAPI.colorizerURL + query)
         tree = html.fromstring(page.content)
 
         color_code = tree.xpath('//span[@class="hex"]/text()')[0]
@@ -18,4 +18,4 @@ class API:
 if len(sys.argv) != 2:
     print "Please provide the query parameter"
 else:
-    API.query(sys.argv[1])
+    ColorizerAPI.query(sys.argv[1])
