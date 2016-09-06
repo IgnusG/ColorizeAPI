@@ -2,6 +2,7 @@ from lxml import html
 import requests
 import sys
 
+
 class ColorizeAPI:
 
     colorizeURL = "https://alexbeals.com/projects/colorize/search.php?q="
